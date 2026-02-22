@@ -1,52 +1,55 @@
 {
-  "name": "harry-potter-quiz",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:harry-potter-quiz": "node dist/harry-potter-quiz/server/server.mjs"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
-  "private": true,
-  "packageManager": "pnpm@10.27.0",
-  "dependencies": {
-    "@angular/common": "^21.1.0",
-    "@angular/compiler": "^21.1.0",
-    "@angular/core": "^21.1.0",
-    "@angular/forms": "^21.1.0",
-    "@angular/platform-browser": "^21.1.0",
-    "@angular/platform-server": "^21.1.0",
-    "@angular/router": "^21.1.0",
-    "@angular/ssr": "^21.1.4",
-    "express": "^5.1.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@angular/build": "^21.1.4",
-    "@angular/cli": "^21.1.4",
-    "@angular/compiler-cli": "^21.1.0",
-    "@tailwindcss/postcss": "^4.1.12",
-    "@types/express": "^5.0.1",
-    "@types/node": "^20.17.19",
-    "jsdom": "^27.1.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.12",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
-  }
+	"name": "harry-potter-quiz",
+	"version": "0.0.0",
+	"scripts": {
+		"ng": "ng",
+		"start": "ng serve",
+		"build": "ng build",
+		"watch": "ng build --watch --configuration development",
+		"test": "ng test",
+		"serve:ssr:harry-potter-quiz": "node dist/harry-potter-quiz/server/server.mjs",
+		"preview": "pnpm run build && wrangler dev",
+		"deploy": "pnpm run build && wrangler deploy",
+		"cf-typegen": "wrangler types"
+	},
+	"prettier": {
+		"printWidth": 100,
+		"singleQuote": true,
+		"overrides": [
+			{
+				"files": "*.html",
+				"options": {
+					"parser": "angular"
+				}
+			}
+		]
+	},
+	"private": true,
+	"packageManager": "pnpm@10.27.0",
+	"dependencies": {
+		"@angular/common": "^21.1.0",
+		"@angular/compiler": "^21.1.0",
+		"@angular/core": "^21.1.0",
+		"@angular/forms": "^21.1.0",
+		"@angular/platform-browser": "^21.1.0",
+		"@angular/platform-server": "^21.1.0",
+		"@angular/router": "^21.1.0",
+		"@angular/ssr": "^21.1.4",
+		"rxjs": "~7.8.0",
+		"tslib": "^2.3.0"
+	},
+	"devDependencies": {
+		"@angular/build": "^21.1.4",
+		"@angular/cli": "^21.1.4",
+		"@angular/compiler-cli": "^21.1.0",
+		"@tailwindcss/postcss": "^4.1.12",
+		"@types/node": "^20.17.19",
+		"jsdom": "^27.1.0",
+		"postcss": "^8.5.3",
+		"tailwindcss": "^4.1.12",
+		"typescript": "~5.9.2",
+		"vitest": "^4.0.8",
+		"wrangler": "^4.67.0",
+		"xhr2": "^0.2.1"
+	}
 }
