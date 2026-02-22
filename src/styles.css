@@ -1,3 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+@theme {
+  --color-hp-yellow: #f0c75e;
+  --color-hp-black: #1a1a1a;
+  --color-hp-copper: #b87333;
+  --color-hp-amber: #d4a017;
+  --color-hp-cream: #fff8e7;
+}
+
+body {
+  background-color: var(--color-hp-cream);
+  color: var(--color-hp-black);
+}
