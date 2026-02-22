@@ -20,12 +20,13 @@ type QuizState = 'welcome' | 'loading' | 'quiz' | 'results';
           class="min-h-screen bg-hp-cream flex items-center justify-center"
           role="status"
           aria-live="polite"
+          i18n-aria-label="@@loadingLabel"
           aria-label="Loading quiz questions"
         >
           <div class="text-center">
             <div class="text-6xl mb-6 animate-bounce" aria-hidden="true">⚡</div>
-            <p class="text-xl font-semibold text-hp-black">Summoning wizarding knowledge...</p>
-            <p class="text-gray-500 mt-2 text-sm">Connecting to Hogwarts archives</p>
+            <p class="text-xl font-semibold text-hp-black" i18n="@@loadingMessage">Summoning wizarding knowledge...</p>
+            <p class="text-gray-500 mt-2 text-sm" i18n="@@loadingSubMessage">Connecting to Hogwarts archives</p>
           </div>
         </div>
       }
@@ -57,16 +58,18 @@ type QuizState = 'welcome' | 'loading' | 'quiz' | 'results';
       >
         <div class="bg-white rounded-2xl p-8 max-w-sm mx-4 text-center shadow-2xl">
           <div class="text-5xl mb-4" aria-hidden="true">❌</div>
-          <h2 id="error-title" class="text-xl font-bold text-gray-800 mb-2">Spell Failed!</h2>
-          <p id="error-description" class="text-gray-600 mb-6">
+          <h2 id="error-title" class="text-xl font-bold text-gray-800 mb-2" i18n="@@errorTitle">Spell Failed!</h2>
+          <p id="error-description" class="text-gray-600 mb-6" i18n="@@errorDescription">
             Could not connect to the wizarding archives. Please check your connection and try
             again.
           </p>
           <button
             (click)="quizService.loadAndGenerateQuiz()"
             class="bg-hp-yellow text-hp-black font-bold py-2 px-6 rounded-full hover:bg-hp-amber transition-colors focus:outline-none focus:ring-2 focus:ring-hp-yellow focus:ring-offset-2"
+            i18n-aria-label="@@tryAgainLabel"
+            aria-label="Try loading the quiz again"
           >
-            Try Again
+            <span i18n="@@tryAgain">Try Again</span>
           </button>
         </div>
       </div>

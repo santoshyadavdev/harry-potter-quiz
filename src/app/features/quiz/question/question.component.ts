@@ -21,12 +21,26 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
         <!-- Progress header -->
         <div class="mb-6">
           <div class="flex justify-between items-center mb-2">
-            <span class="text-sm font-semibold text-gray-500">
+            <span class="text-sm font-semibold text-gray-500" i18n="@@questionProgress">
               Question {{ questionNumber() }} of {{ totalQuestions() }}
             </span>
-            <span class="text-sm font-bold text-hp-copper uppercase tracking-wide">
-              {{ question().category ?? 'trivia' }}
-            </span>
+            @switch (question().category) {
+              @case ('house') {
+                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryHouse">house</span>
+              }
+              @case ('actor') {
+                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryActor">actor</span>
+              }
+              @case ('patronus') {
+                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryPatronus">patronus</span>
+              }
+              @case ('spell') {
+                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categorySpell">spell</span>
+              }
+              @default {
+                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryTrivia">trivia</span>
+              }
+            }
           </div>
           <div
             class="w-full bg-gray-200 rounded-full h-2"
@@ -34,6 +48,7 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
             [attr.aria-valuenow]="questionNumber() - 1"
             aria-valuemin="0"
             [attr.aria-valuemax]="totalQuestions()"
+            i18n-aria-label="@@progressBarLabel"
             [attr.aria-label]="'Question ' + (questionNumber() - 1) + ' of ' + totalQuestions() + ' completed'"
           >
             <div
@@ -54,6 +69,7 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
         <div
           class="grid grid-cols-1 gap-3"
           role="group"
+          i18n-aria-labelledby="@@questionHeadingRef"
           aria-labelledby="question-heading"
         >
           @for (option of question().options; track $index) {
@@ -75,12 +91,25 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
         <!-- Confirm button (shown after selection) -->
         @if (selectedAnswer() !== null) {
           <div class="mt-6 flex justify-end">
-            <button
-              (click)="confirmAnswer()"
-              class="bg-hp-black text-hp-yellow font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
-            >
-              {{ isLastQuestion() ? '🏆 See Results' : 'Next Question →' }}
-            </button>
+            @if (isLastQuestion()) {
+              <button
+                (click)="confirmAnswer()"
+                class="bg-hp-black text-hp-yellow font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
+                i18n-aria-label="@@seeResultsLabel"
+                aria-label="See your quiz results"
+              >
+                <span i18n="@@seeResults">🏆 See Results</span>
+              </button>
+            } @else {
+              <button
+                (click)="confirmAnswer()"
+                class="bg-hp-black text-hp-yellow font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
+                i18n-aria-label="@@nextQuestionLabel"
+                aria-label="Go to next question"
+              >
+                <span i18n="@@nextQuestion">Next Question →</span>
+              </button>
+            }
           </div>
         }
       </div>

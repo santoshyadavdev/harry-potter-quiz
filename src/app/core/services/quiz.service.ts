@@ -95,7 +95,7 @@ export class QuizService {
     const options = this.shuffle([...HOUSES]);
 
     return {
-      question: `Which house is ${character.name} in?`,
+      question: $localize`:@@houseQuestion:Which house is ${character.name}:name: in?`,
       options,
       correctAnswer: character.house,
       category: 'house',
@@ -117,7 +117,7 @@ export class QuizService {
     const options = this.shuffle([character.actor, ...wrongAnswers]);
 
     return {
-      question: `Who plays ${character.name} in the movies?`,
+      question: $localize`:@@actorQuestion:Who plays ${character.name}:name: in the movies?`,
       options,
       correctAnswer: character.actor,
       category: 'actor',
@@ -141,7 +141,7 @@ export class QuizService {
     const options = this.shuffle([character.patronus, ...wrongAnswers]);
 
     return {
-      question: `What is ${character.name}'s patronus?`,
+      question: $localize`:@@patronusQuestion:What is ${character.name}:name:'s patronus?`,
       options,
       correctAnswer: character.patronus,
       category: 'patronus',
@@ -161,7 +161,7 @@ export class QuizService {
     const options = this.shuffle([spell.description, ...wrongAnswers]);
 
     return {
-      question: `What does the spell "${spell.name}" do?`,
+      question: $localize`:@@spellQuestion:What does the spell "${spell.name}" do?`,
       options,
       correctAnswer: spell.description,
       category: 'spell',

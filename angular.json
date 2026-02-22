@@ -12,12 +12,27 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "code": "en",
+          "baseHref": "/en/"
+        },
+        "locales": {
+          "de": {
+            "translation": "src/locale/messages.de.xlf",
+            "baseHref": "/de/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "polyfills": [
+              "@angular/localize/init"
+            ],
             "assets": [
               {
                 "glob": "**/*",
@@ -33,7 +48,8 @@
               "entry": "src/server.ts",
               "experimentalPlatform": "neutral"
             },
-            "outputPath": "dist"
+            "outputPath": "dist",
+            "localize": true
           },
           "configurations": {
             "production": {
@@ -54,10 +70,24 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "localize": false
+            },
+            "en": {
+              "localize": ["en"]
+            },
+            "de": {
+              "localize": ["de"]
             }
           },
           "defaultConfiguration": "production"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n",
+          "options": {
+            "buildTarget": "harry-potter-quiz:build",
+            "outputPath": "src/locale"
+          }
         },
         "serve": {
           "builder": "@angular/build:dev-server",
