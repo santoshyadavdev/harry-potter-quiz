@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="houseQuestion" datatype="html">
+        <source>Which house is <x id="name" equiv-text="character.name"/> in?</source>
+        <target>In welchem Haus ist <x id="name" equiv-text="character.name"/>?</target>
+      </trans-unit>
+      <trans-unit id="actorQuestion" datatype="html">
+        <source>Who plays <x id="name" equiv-text="character.name"/> in the movies?</source>
+        <target>Wer spielt <x id="name" equiv-text="character.name"/> in den Filmen?</target>
+      </trans-unit>
+      <trans-unit id="patronusQuestion" datatype="html">
+        <source>What is <x id="name" equiv-text="character.name"/>'s patronus?</source>
+        <target>Was ist der Patronus von <x id="name" equiv-text="character.name"/>?</target>
+      </trans-unit>
+      <trans-unit id="spellQuestion" datatype="html">
+        <source>What does the spell &quot;<x id="PH" equiv-text="spell.name"/>&quot; do?</source>
+        <target>Was bewirkt der Zauberspruch &quot;<x id="PH" equiv-text="spell.name"/>&quot;?</target>
+      </trans-unit>
+      <trans-unit id="shareXMessage" datatype="html">
+        <source>I scored <x id="score" equiv-text="score"/>/<x id="total" equiv-text="total"/> on the Little Quizzard! 🧙‍♂️ Test your wizarding knowledge! @coderabbitai @santoshyadavdev <x id="url" equiv-text="QUIZ_URL"/></source>
+        <target>Ich habe <x id="score" equiv-text="score"/>/<x id="total" equiv-text="total"/> beim Little Quizzard erreicht! 🧙‍♂️ Teste dein Wissen über die Zaubererwelt! @coderabbitai @santoshyadavdev <x id="url" equiv-text="QUIZ_URL"/></target>
+      </trans-unit>
+      <trans-unit id="shareHashtagMessage" datatype="html">
+        <source>I scored <x id="score" equiv-text="score"/>/<x id="total" equiv-text="total"/> on the Little Quizzard! 🧙‍♂️ Test your wizarding knowledge! #coderabbitai #santoshyadavdev <x id="url" equiv-text="QUIZ_URL"/></source>
+        <target>Ich habe <x id="score" equiv-text="score"/>/<x id="total" equiv-text="total"/> beim Little Quizzard erreicht! 🧙‍♂️ Teste dein Wissen über die Zaubererwelt! #coderabbitai #santoshyadavdev <x id="url" equiv-text="QUIZ_URL"/></target>
+      </trans-unit>
+      <trans-unit id="questionProgress" datatype="html">
+        <source> Question <x id="INTERPOLATION" equiv-text="{{ questionNumber() }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ totalQuestions() }}"/> </source>
+        <target> Frage <x id="INTERPOLATION" equiv-text="{{ questionNumber() }}"/> von <x id="INTERPOLATION_1" equiv-text="{{ totalQuestions() }}"/> </target>
+      </trans-unit>
+      <trans-unit id="categoryHouse" datatype="html">
+        <source>house</source>
+        <target>Haus</target>
+      </trans-unit>
+      <trans-unit id="categoryActor" datatype="html">
+        <source>actor</source>
+        <target>Schauspieler</target>
+      </trans-unit>
+      <trans-unit id="categoryPatronus" datatype="html">
+        <source>patronus</source>
+        <target>Patronus</target>
+      </trans-unit>
+      <trans-unit id="categorySpell" datatype="html">
+        <source>spell</source>
+        <target>Zauberspruch</target>
+      </trans-unit>
+      <trans-unit id="categoryTrivia" datatype="html">
+        <source>trivia</source>
+        <target>Trivia</target>
+      </trans-unit>
+      <trans-unit id="questionHeadingRef" datatype="html">
+        <source>question-heading</source>
+        <target>question-heading</target>
+      </trans-unit>
+      <trans-unit id="seeResultsLabel" datatype="html">
+        <source>See your quiz results</source>
+        <target>Deine Quizergebnisse anzeigen</target>
+      </trans-unit>
+      <trans-unit id="seeResults" datatype="html">
+        <source>🏆 See Results</source>
+        <target>🏆 Ergebnisse anzeigen</target>
+      </trans-unit>
+      <trans-unit id="nextQuestionLabel" datatype="html">
+        <source>Go to next question</source>
+        <target>Zur nächsten Frage</target>
+      </trans-unit>
+      <trans-unit id="nextQuestion" datatype="html">
+        <source>Next Question →</source>
+        <target>Nächste Frage →</target>
+      </trans-unit>
+      <trans-unit id="loadingLabel" datatype="html">
+        <source>Loading quiz questions</source>
+        <target>Quizfragen werden geladen</target>
+      </trans-unit>
+      <trans-unit id="loadingMessage" datatype="html">
+        <source>Summoning wizarding knowledge...</source>
+        <target>Zauberwissen wird herbeigerufen...</target>
+      </trans-unit>
+      <trans-unit id="loadingSubMessage" datatype="html">
+        <source>Connecting to Hogwarts archives</source>
+        <target>Verbindung zu den Hogwarts-Archiven</target>
+      </trans-unit>
+      <trans-unit id="errorTitle" datatype="html">
+        <source>Spell Failed!</source>
+        <target>Zauber fehlgeschlagen!</target>
+      </trans-unit>
+      <trans-unit id="errorDescription" datatype="html">
+        <source> Could not connect to the wizarding archives. Please check your connection and try again. </source>
+        <target> Verbindung zu den Zauberarchiven fehlgeschlagen. Bitte überprüfe deine Verbindung und versuche es erneut. </target>
+      </trans-unit>
+      <trans-unit id="tryAgainLabel" datatype="html">
+        <source>Try loading the quiz again</source>
+        <target>Quiz erneut laden versuchen</target>
+      </trans-unit>
+      <trans-unit id="tryAgain" datatype="html">
+        <source>Try Again</source>
+        <target>Erneut versuchen</target>
+      </trans-unit>
+      <trans-unit id="yourScore" datatype="html">
+        <source>Your Score</source>
+        <target>Dein Ergebnis</target>
+      </trans-unit>
+      <trans-unit id="scoreBarLabel" datatype="html">
+        <source>Score: <x id="INTERPOLATION" equiv-text="percentage()"/> percent</source>
+        <target>Punktzahl: <x id="INTERPOLATION" equiv-text="percentage()"/> Prozent</target>
+      </trans-unit>
+      <trans-unit id="playAgainLabel" datatype="html">
+        <source>Play the quiz again</source>
+        <target>Quiz erneut spielen</target>
+      </trans-unit>
+      <trans-unit id="playAgain" datatype="html">
+        <source>🔄 Play Again</source>
+        <target>🔄 Nochmal spielen</target>
+      </trans-unit>
+      <trans-unit id="shareResultLabel" datatype="html">
+        <source>Share your quiz result</source>
+        <target>Quizergebnis teilen</target>
+      </trans-unit>
+      <trans-unit id="shareResult" datatype="html">
+        <source>🔗 Share Result</source>
+        <target>🔗 Ergebnis teilen</target>
+      </trans-unit>
+      <trans-unit id="closeShareDialogLabel" datatype="html">
+        <source>Close share dialog</source>
+        <target>Teilen-Dialog schließen</target>
+      </trans-unit>
+      <trans-unit id="shareModalTitle" datatype="html">
+        <source>Share Your Result</source>
+        <target>Ergebnis teilen</target>
+      </trans-unit>
+      <trans-unit id="shareModalDescription" datatype="html">
+        <source> You scored <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-hp-black&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{ score() }}"/>/<x id="INTERPOLATION_1" equiv-text="{{ totalQuestions() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> — let the wizarding world know! </source>
+        <target> Du hast <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-hp-black&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{ score() }}"/>/<x id="INTERPOLATION_1" equiv-text="{{ totalQuestions() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> erreicht — lass es die Zaubererwelt wissen! </target>
+      </trans-unit>
+      <trans-unit id="shareOnXLabel" datatype="html">
+        <source>Share on X (Twitter)</source>
+        <target>Auf X (Twitter) teilen</target>
+      </trans-unit>
+      <trans-unit id="shareTwitter" datatype="html">
+        <source>(Twitter)</source>
+        <target>(Twitter)</target>
+      </trans-unit>
+      <trans-unit id="shareOnLinkedInLabel" datatype="html">
+        <source>Share on LinkedIn</source>
+        <target>Auf LinkedIn teilen</target>
+      </trans-unit>
+      <trans-unit id="shareLinkedIn" datatype="html">
+        <source>LinkedIn</source>
+        <target>LinkedIn</target>
+      </trans-unit>
+      <trans-unit id="shareOnFacebookLabel" datatype="html">
+        <source>Share on Facebook</source>
+        <target>Auf Facebook teilen</target>
+      </trans-unit>
+      <trans-unit id="shareFacebook" datatype="html">
+        <source>Facebook</source>
+        <target>Facebook</target>
+      </trans-unit>
+      <trans-unit id="shareOnWhatsAppLabel" datatype="html">
+        <source>Share on WhatsApp</source>
+        <target>Auf WhatsApp teilen</target>
+      </trans-unit>
+      <trans-unit id="shareWhatsApp" datatype="html">
+        <source>WhatsApp</source>
+        <target>WhatsApp</target>
+      </trans-unit>
+      <trans-unit id="copiedFeedback" datatype="html">
+        <source>Copied!</source>
+        <target>Kopiert!</target>
+      </trans-unit>
+      <trans-unit id="copyForInstagram" datatype="html">
+        <source>Copy for Instagram</source>
+        <target>Für Instagram kopieren</target>
+      </trans-unit>
+      <trans-unit id="copiedToClipboardLabel" datatype="html">
+        <source>Copied to clipboard</source>
+        <target>In die Zwischenablage kopiert</target>
+      </trans-unit>
+      <trans-unit id="copyInstagramLabel" datatype="html">
+        <source>Copy share text for Instagram</source>
+        <target>Teiltext für Instagram kopieren</target>
+      </trans-unit>
+      <trans-unit id="scoreOutstanding" datatype="html">
+        <source>Outstanding! You're a true wizarding world expert — Dumbledore himself would be proud! 🦁</source>
+        <target>Hervorragend! Du bist ein echter Experte der Zaubererwelt — Dumbledore selbst wäre stolz auf dich! 🦁</target>
+      </trans-unit>
+      <trans-unit id="scoreExceedsExpectations" datatype="html">
+        <source>Exceeds Expectations! A true Hufflepuff spirit — hardworking and dedicated! ⚡</source>
+        <target>Übertrifft die Erwartungen! Ein wahrer Hufflepuff-Geist — fleißig und engagiert! ⚡</target>
+      </trans-unit>
+      <trans-unit id="scoreAcceptable" datatype="html">
+        <source>Acceptable! Not bad, but there is always more to learn at Hogwarts! 📖</source>
+        <target>Akzeptabel! Nicht schlecht, aber es gibt immer noch mehr in Hogwarts zu lernen! 📖</target>
+      </trans-unit>
+      <trans-unit id="scorePoor" datatype="html">
+        <source>Poor... Time for some extra tutoring from Professor McGonagall! 🏰</source>
+        <target>Mangelhaft... Zeit für etwas Extra-Unterricht bei Professor McGonagall! 🏰</target>
+      </trans-unit>
+      <trans-unit id="scoreTroll" datatype="html">
+        <source>Troll! Even a first-year muggle knows more. Back to chapter one! 📚</source>
+        <target>Troll! Sogar ein Erstjahres-Muggel weiß mehr. Zurück zu Kapitel eins! 📚</target>
+      </trans-unit>
+      <trans-unit id="langSwitchEnLabel" datatype="html">
+        <source>Switch to English</source>
+        <target>Zu Englisch wechseln</target>
+      </trans-unit>
+      <trans-unit id="langEnglish" datatype="html">
+        <source>English</source>
+        <target>English</target>
+      </trans-unit>
+      <trans-unit id="langSwitchDeLabel" datatype="html">
+        <source>Switch to German</source>
+        <target>Zu Deutsch wechseln</target>
+      </trans-unit>
+      <trans-unit id="langGerman" datatype="html">
+        <source>Deutsch</source>
+        <target>Deutsch</target>
+      </trans-unit>
+      <trans-unit id="badgerEmoji" datatype="html">
+        <source>Hufflepuff badger</source>
+        <target>Hufflepuff-Dachs</target>
+      </trans-unit>
+      <trans-unit id="welcomeTitle" datatype="html">
+        <source>Harry Potter</source>
+        <target>Harry Potter</target>
+      </trans-unit>
+      <trans-unit id="welcomeSubtitle" datatype="html">
+        <source>Wizarding World Quiz</source>
+        <target>Zaubererwelt-Quiz</target>
+      </trans-unit>
+      <trans-unit id="welcomeMessage" datatype="html">
+        <source> Welcome, young witch or wizard! Think you know enough about the wizarding world? </source>
+        <target> Willkommen, junge Hexe oder junger Zauberer! Denkst du, du weißt genug über die Zaubererwelt? </target>
+      </trans-unit>
+      <trans-unit id="welcomeDescription" datatype="html">
+        <source> Test your knowledge with <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-hp-black&quot;&gt;"/>10 questions<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> about Harry Potter characters, spells, houses, and more! </source>
+        <target> Teste dein Wissen mit <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-hp-black&quot;&gt;"/>10 Fragen<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> über Harry-Potter-Charaktere, Zaubersprüche, Häuser und mehr! </target>
+      </trans-unit>
+      <trans-unit id="builtWith" datatype="html">
+        <source>Built With</source>
+        <target>Entwickelt mit</target>
+      </trans-unit>
+      <trans-unit id="startButtonLabel" datatype="html">
+        <source>Start the Harry Potter Quiz</source>
+        <target>Harry-Potter-Quiz starten</target>
+      </trans-unit>
+      <trans-unit id="startButton" datatype="html">
+        <source>⚡ Start Quiz</source>
+        <target>⚡ Quiz starten</target>
+      </trans-unit>
+      <trans-unit id="dumbledoreQuote" datatype="html">
+        <source> &quot;It does not do to dwell on dreams and forget to live.&quot; — Albus Dumbledore </source>
+        <target> „Es bringt nichts, in Träumen zu verweilen und das Leben zu vergessen." — Albus Dumbledore </target>
+      </trans-unit>
+      <trans-unit id="builtUsing" datatype="html">
+        <source>Built using</source>
+        <target>Entwickelt mit</target>
+      </trans-unit>
+      <trans-unit id="progressBarLabel" datatype="html">
+        <source>Question <x id="INTERPOLATION" equiv-text="questionNumber() - 1"/> of <x id="INTERPOLATION_1" equiv-text="totalQuestions()"/> completed</source>
+        <target>Frage <x id="INTERPOLATION" equiv-text="questionNumber() - 1"/> von <x id="INTERPOLATION_1" equiv-text="totalQuestions()"/> abgeschlossen</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

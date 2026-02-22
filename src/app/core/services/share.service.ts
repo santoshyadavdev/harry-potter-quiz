@@ -8,17 +8,11 @@ export class ShareService {
   private readonly document = inject(DOCUMENT);
 
   private xMessage(score: number, total: number): string {
-    return (
-      `I scored ${score}/${total} on the Little Quizzard! 🧙‍♂️ ` +
-      `Test your wizarding knowledge! @coderabbitai @santoshyadavdev ${QUIZ_URL}`
-    );
+    return $localize`:@@shareXMessage:I scored ${score}:score:/${total}:total: on the Little Quizzard! 🧙‍♂️ Test your wizarding knowledge! @coderabbitai @santoshyadavdev ${QUIZ_URL}:url:`;
   }
 
   private hashtagMessage(score: number, total: number): string {
-    return (
-      `I scored ${score}/${total} on the Little Quizzard! 🧙‍♂️ ` +
-      `Test your wizarding knowledge! #coderabbitai #santoshyadavdev ${QUIZ_URL}`
-    );
+    return $localize`:@@shareHashtagMessage:I scored ${score}:score:/${total}:total: on the Little Quizzard! 🧙‍♂️ Test your wizarding knowledge! #coderabbitai #santoshyadavdev ${QUIZ_URL}:url:`;
   }
 
   shareToX(score: number, total: number): void {

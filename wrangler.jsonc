@@ -5,6 +5,15 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "harry-potter-quiz",
+	/**
+	 * The server entry point handles locale detection and routes /en/ and /de/ requests
+	 * to the correct locale-specific Angular SSR build.
+	 * The multi-locale build produces:
+	 *   dist/browser/en/  dist/browser/de/
+	 *   dist/server/en/   dist/server/de/
+	 * Wrangler serves static assets from dist/browser (which contains both locale dirs)
+	 * and the single Worker entry handles SSR for both subpaths.
+	 */
 	"main": "./dist/server/server.mjs",
 	"compatibility_date": "2025-09-27",
 	"assets": {
