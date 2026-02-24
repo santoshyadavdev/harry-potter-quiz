@@ -16,7 +16,7 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
   selector: 'app-question',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="min-h-screen bg-hp-cream flex items-center justify-center px-4 py-8">
+    <div class="min-h-screen bg-hp-background flex items-center justify-center px-4 py-8">
       <div class="w-full max-w-2xl">
         <!-- Progress header -->
         <div class="mb-6">
@@ -26,19 +26,19 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
             </span>
             @switch (question().category) {
               @case ('house') {
-                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryHouse">house</span>
+                <span class="text-sm font-bold text-hp-accent uppercase tracking-wide" i18n="@@categoryHouse">house</span>
               }
               @case ('actor') {
-                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryActor">actor</span>
+                <span class="text-sm font-bold text-hp-accent uppercase tracking-wide" i18n="@@categoryActor">actor</span>
               }
               @case ('patronus') {
-                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryPatronus">patronus</span>
+                <span class="text-sm font-bold text-hp-accent uppercase tracking-wide" i18n="@@categoryPatronus">patronus</span>
               }
               @case ('spell') {
-                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categorySpell">spell</span>
+                <span class="text-sm font-bold text-hp-accent uppercase tracking-wide" i18n="@@categorySpell">spell</span>
               }
               @default {
-                <span class="text-sm font-bold text-hp-copper uppercase tracking-wide" i18n="@@categoryTrivia">trivia</span>
+                <span class="text-sm font-bold text-hp-accent uppercase tracking-wide" i18n="@@categoryTrivia">trivia</span>
               }
             }
           </div>
@@ -52,14 +52,14 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
             [attr.aria-label]="'Question ' + (questionNumber() - 1) + ' of ' + totalQuestions() + ' completed'"
           >
             <div
-              class="bg-hp-yellow h-2 rounded-full transition-all duration-500"
+              class="bg-hp-primary h-2 rounded-full transition-all duration-500"
               [style.width.%]="((questionNumber() - 1) / totalQuestions()) * 100"
             ></div>
           </div>
         </div>
 
         <!-- Question card -->
-        <div class="bg-white rounded-3xl shadow-xl p-8 mb-6 border-t-4 border-hp-yellow">
+        <div class="bg-white rounded-3xl shadow-xl p-8 mb-6 border-t-4 border-hp-primary">
           <h2 class="text-2xl font-bold text-hp-black leading-snug" id="question-heading">
             {{ question().question }}
           </h2>
@@ -94,7 +94,7 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
             @if (isLastQuestion()) {
               <button
                 (click)="confirmAnswer()"
-                class="bg-hp-black text-hp-yellow font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
+                class="bg-hp-black text-hp-primary font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
                 i18n-aria-label="@@seeResultsLabel"
                 aria-label="See your quiz results"
               >
@@ -103,7 +103,7 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
             } @else {
               <button
                 (click)="confirmAnswer()"
-                class="bg-hp-black text-hp-yellow font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
+                class="bg-hp-black text-hp-primary font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hp-black focus:ring-offset-2"
                 i18n-aria-label="@@nextQuestionLabel"
                 aria-label="Go to next question"
               >
@@ -144,7 +144,7 @@ export class QuestionComponent {
     const correct = this.question().correctAnswer;
 
     if (selected === null) {
-      return `${base} bg-white border-gray-200 text-gray-800 hover:border-hp-yellow hover:bg-yellow-50 cursor-pointer focus:ring-hp-yellow`;
+      return `${base} bg-white border-gray-200 text-gray-800 hover:border-hp-primary hover:bg-hp-primary/10 cursor-pointer focus:ring-hp-primary`;
     }
     if (option === correct) {
       return `${base} bg-green-50 border-green-500 text-green-800 focus:ring-green-500`;

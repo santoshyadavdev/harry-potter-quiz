@@ -17,7 +17,7 @@ type QuizState = 'welcome' | 'loading' | 'quiz' | 'results';
       }
       @case ('loading') {
         <div
-          class="min-h-screen bg-hp-cream flex items-center justify-center"
+          class="min-h-screen bg-hp-background flex items-center justify-center"
           role="status"
           aria-live="polite"
           i18n-aria-label="@@loadingLabel"
@@ -65,7 +65,7 @@ type QuizState = 'welcome' | 'loading' | 'quiz' | 'results';
           </p>
           <button
             (click)="quizService.loadAndGenerateQuiz()"
-            class="bg-hp-yellow text-hp-black font-bold py-2 px-6 rounded-full hover:bg-hp-amber transition-colors focus:outline-none focus:ring-2 focus:ring-hp-yellow focus:ring-offset-2"
+            class="bg-hp-primary text-hp-black font-bold py-2 px-6 rounded-full hover:bg-hp-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary focus:ring-offset-2"
             i18n-aria-label="@@tryAgainLabel"
             aria-label="Try loading the quiz again"
           >

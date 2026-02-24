@@ -3,14 +3,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-hp-yellow: #f0c75e;
+  --color-hp-primary: var(--hp-primary, #f0c75e);
+  --color-hp-secondary: var(--hp-secondary, #d4a017);
+  --color-hp-accent: var(--hp-accent, #b87333);
+  --color-hp-background: var(--hp-background, #fff8e7);
   --color-hp-black: #1a1a1a;
-  --color-hp-copper: #b87333;
-  --color-hp-amber: #d4a017;
-  --color-hp-cream: #fff8e7;
+}
+
+/* Default baseline: Hufflepuff */
+:root {
+  --hp-primary: #f0c75e;
+  --hp-secondary: #d4a017;
+  --hp-accent: #b87333;
+  --hp-background: #fff8e7;
+}
+
+.theme-gryffindor {
+  --hp-primary: #d4af37;
+  --hp-secondary: #740001;
+  --hp-accent: #ae0001;
+  --hp-background: #fff9f0;
+}
+
+.theme-hufflepuff {
+  --hp-primary: #f0c75e;
+  --hp-secondary: #d4a017;
+  --hp-accent: #b87333;
+  --hp-background: #fff8e7;
+}
+
+.theme-ravenclaw {
+  --hp-primary: #946b2d;
+  --hp-secondary: #222f5b;
+  --hp-accent: #4e5a8c;
+  --hp-background: #eef0f8;
+}
+
+.theme-slytherin {
+  --hp-primary: #2a7d4f;
+  --hp-secondary: #1a472a;
+  --hp-accent: #aaaaaa;
+  --hp-background: #f0f5f1;
 }
 
 body {
-  background-color: var(--color-hp-cream);
+  background-color: var(--color-hp-background);
   color: var(--color-hp-black);
 }
