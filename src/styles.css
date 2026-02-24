@@ -3,47 +3,39 @@
 @import "tailwindcss";
 
 @theme {
-  --color-hp-primary: var(--hp-primary, #f0c75e);
-  --color-hp-secondary: var(--hp-secondary, #d4a017);
-  --color-hp-accent: var(--hp-accent, #b87333);
-  --color-hp-background: var(--hp-background, #fff8e7);
+  --color-hp-primary: #f0c75e;
+  --color-hp-secondary: #d4a017;
+  --color-hp-accent: #b87333;
+  --color-hp-background: #fff8e7;
   --color-hp-black: #1a1a1a;
 }
 
-/* Default baseline: Hufflepuff */
-:root {
-  --hp-primary: #f0c75e;
-  --hp-secondary: #d4a017;
-  --hp-accent: #b87333;
-  --hp-background: #fff8e7;
-}
-
 .theme-gryffindor {
-  --hp-primary: #d4af37;
-  --hp-secondary: #740001;
-  --hp-accent: #ae0001;
-  --hp-background: #fff9f0;
+  --color-hp-primary: #d4af37;
+  --color-hp-secondary: #740001;
+  --color-hp-accent: #ae0001;
+  --color-hp-background: #fff9f0;
 }
 
 .theme-hufflepuff {
-  --hp-primary: #f0c75e;
-  --hp-secondary: #d4a017;
-  --hp-accent: #b87333;
-  --hp-background: #fff8e7;
+  --color-hp-primary: #f0c75e;
+  --color-hp-secondary: #d4a017;
+  --color-hp-accent: #b87333;
+  --color-hp-background: #fff8e7;
 }
 
 .theme-ravenclaw {
-  --hp-primary: #946b2d;
-  --hp-secondary: #222f5b;
-  --hp-accent: #4e5a8c;
-  --hp-background: #eef0f8;
+  --color-hp-primary: #946b2d;
+  --color-hp-secondary: #222f5b;
+  --color-hp-accent: #4e5a8c;
+  --color-hp-background: #eef0f8;
 }
 
 .theme-slytherin {
-  --hp-primary: #2a7d4f;
-  --hp-secondary: #1a472a;
-  --hp-accent: #aaaaaa;
-  --hp-background: #f0f5f1;
+  --color-hp-primary: #2a7d4f;
+  --color-hp-secondary: #1a472a;
+  --color-hp-accent: #aaaaaa;
+  --color-hp-background: #f0f5f1;
 }
 
 body {

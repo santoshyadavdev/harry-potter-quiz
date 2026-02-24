@@ -17,6 +17,7 @@ export class ThemeService {
   readonly themeClass = computed(() => `theme-${this._theme().toLowerCase()}`);
 
   private initialized = false;
+  private prevThemeClass = '';
 
   constructor() {
     afterNextRender(() => {
@@ -28,9 +29,15 @@ export class ThemeService {
     });
 
     effect(() => {
-      const theme = this._theme();
+      const themeClass = this.themeClass();
+      const el = this.document.documentElement;
+      if (this.prevThemeClass) {
+        el.classList.remove(this.prevThemeClass);
+      }
+      el.classList.add(themeClass);
+      this.prevThemeClass = themeClass;
       if (this.initialized) {
-        this.document.defaultView?.localStorage?.setItem(THEME_STORAGE_KEY, theme);
+        this.document.defaultView?.localStorage?.setItem(THEME_STORAGE_KEY, this._theme());
       }
     });
   }
