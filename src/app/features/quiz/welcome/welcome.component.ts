@@ -1,47 +1,61 @@
-import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, output } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { HOUSES, HouseTheme, ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-welcome',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgOptimizedImage],
   template: `
     <div class="min-h-screen flex items-center justify-center bg-hp-background px-4 py-12">
       <div class="text-center max-w-2xl mx-auto">
 
-        <!-- Top controls: language switcher + theme selector -->
-        <div class="flex flex-wrap justify-end mb-4 gap-2">
-          <!-- Theme selector -->
-          @for (house of houses; track house) {
-            <button
-              (click)="themeService.setTheme(house)"
-              [class]="getThemeButtonClass(house)"
-              [attr.aria-label]="'Switch to ' + house + ' theme'"
-              [attr.aria-pressed]="themeService.theme() === house"
+        <!-- Top controls: language switcher (left) + theme selector (right) -->
+        <div class="flex justify-between items-start flex-wrap gap-2 mb-4">
+          <!-- Language switcher (left) -->
+          <div class="flex flex-wrap gap-2">
+            <a
+              href="/en/quiz"
+              class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-primary/50 hover:bg-hp-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
+              i18n-aria-label="@@langSwitchEnLabel"
+              aria-label="Switch to English"
             >
-              {{ houseEmoji(house) }} {{ house }}
-            </button>
-          }
+              <span i18n="@@langEnglish">English</span>
+            </a>
+            <a
+              href="/de/quiz"
+              class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-primary/50 hover:bg-hp-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
+              i18n-aria-label="@@langSwitchDeLabel"
+              aria-label="Switch to German"
+            >
+              <span i18n="@@langGerman">Deutsch</span>
+            </a>
+          </div>
 
-          <!-- Language switcher -->
-          <a
-            href="/en/quiz"
-            class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-primary/50 hover:bg-hp-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
-            i18n-aria-label="@@langSwitchEnLabel"
-            aria-label="Switch to English"
-          >
-            <span i18n="@@langEnglish">English</span>
-          </a>
-          <a
-            href="/de/quiz"
-            class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-primary/50 hover:bg-hp-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
-            i18n-aria-label="@@langSwitchDeLabel"
-            aria-label="Switch to German"
-          >
-            <span i18n="@@langGerman">Deutsch</span>
-          </a>
+          <!-- Theme selector (right) -->
+          <div class="flex flex-wrap gap-2">
+            @for (house of houses; track house) {
+              <button
+                (click)="themeService.setTheme(house)"
+                [class]="getThemeButtonClass(house)"
+                [attr.aria-label]="'Switch to ' + house + ' theme'"
+                [attr.aria-pressed]="themeService.theme() === house"
+              >
+                {{ houseEmoji(house) }} {{ house }}
+              </button>
+            }
+          </div>
         </div>
 
-        <div class="text-8xl mb-6" role="img" i18n-aria-label="@@badgerEmoji" aria-label="Hufflepuff badger">🦡</div>
+        <!-- House image -->
+        <img
+          [ngSrc]="houseImage()"
+          [alt]="themeService.theme() + ' house crest'"
+          width="150"
+          height="150"
+          class="mx-auto mb-4 rounded-full border-4 border-hp-primary shadow-lg transition-opacity duration-300"
+          priority
+        />
 
         <h1 class="text-5xl font-bold text-hp-black mb-3 tracking-tight">
           <span i18n="@@welcomeTitle">Harry Potter</span>
@@ -119,6 +133,15 @@ export class WelcomeComponent {
     Ravenclaw: '🦅',
     Slytherin: '🐍',
   };
+
+  private static readonly HOUSE_IMAGES: Record<HouseTheme, string> = {
+    Gryffindor: '/houses/gryffindor.png',
+    Hufflepuff: '/houses/hufflepuff.png',
+    Ravenclaw: '/houses/ravenclaw.png',
+    Slytherin: '/houses/slytherin.png',
+  };
+
+  protected readonly houseImage = computed(() => WelcomeComponent.HOUSE_IMAGES[this.themeService.theme()]);
 
   protected houseEmoji(house: HouseTheme): string {
     return WelcomeComponent.HOUSE_EMOJIS[house];
