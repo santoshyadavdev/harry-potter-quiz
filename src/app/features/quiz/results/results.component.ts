@@ -5,7 +5,7 @@ import { ShareService } from '../../../core/services/share.service';
   selector: 'app-results',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="min-h-screen bg-hp-cream flex items-center justify-center px-4 py-12">
+    <div class="min-h-screen bg-hp-background flex items-center justify-center px-4 py-12">
       <div class="w-full max-w-lg text-center">
         <!-- Result icon -->
         <div class="text-7xl mb-6" role="img" [attr.aria-label]="resultEmoji() + ' result'">
@@ -13,12 +13,12 @@ import { ShareService } from '../../../core/services/share.service';
         </div>
 
         <!-- Score card -->
-        <div class="bg-white rounded-3xl shadow-xl p-8 mb-6 border-t-4 border-hp-yellow">
+        <div class="bg-white rounded-3xl shadow-xl p-8 mb-6 border-t-4 border-hp-primary">
           <h2 class="text-xl font-semibold text-gray-500 mb-2" i18n="@@yourScore">Your Score</h2>
           <div class="text-6xl font-bold text-hp-black mb-1">
             {{ score() }}<span class="text-3xl text-gray-400">/{{ totalQuestions() }}</span>
           </div>
-          <div class="text-hp-amber font-bold text-lg">{{ percentage() }}%</div>
+          <div class="text-hp-secondary font-bold text-lg">{{ percentage() }}%</div>
 
           <!-- Score bar -->
           <div
@@ -39,7 +39,7 @@ import { ShareService } from '../../../core/services/share.service';
         </div>
 
         <!-- Hufflepuff message -->
-        <div class="bg-hp-yellow/20 border border-hp-yellow rounded-2xl p-6 mb-8">
+        <div class="bg-hp-primary/20 border border-hp-primary rounded-2xl p-6 mb-8">
           <p class="text-base font-semibold text-hp-black leading-relaxed">{{ message() }}</p>
         </div>
 
@@ -47,7 +47,7 @@ import { ShareService } from '../../../core/services/share.service';
         <div class="flex flex-wrap gap-3 justify-center">
           <button
             (click)="playAgain.emit()"
-            class="bg-hp-yellow hover:bg-hp-amber text-hp-black font-bold text-lg py-4 px-10 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-hp-yellow focus:ring-offset-2"
+            class="bg-hp-primary hover:bg-hp-secondary text-hp-black font-bold text-lg py-4 px-10 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-hp-primary focus:ring-offset-2"
             i18n-aria-label="@@playAgainLabel"
             aria-label="Play the quiz again"
           >
@@ -55,7 +55,7 @@ import { ShareService } from '../../../core/services/share.service';
           </button>
           <button
             (click)="showShareModal.set(true)"
-            class="bg-hp-black hover:bg-gray-800 text-hp-yellow font-bold text-lg py-4 px-10 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-hp-yellow focus:ring-offset-2"
+            class="bg-hp-black hover:bg-gray-800 text-hp-primary font-bold text-lg py-4 px-10 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-hp-primary focus:ring-offset-2"
             i18n-aria-label="@@shareResultLabel"
             aria-label="Share your quiz result"
           >
@@ -82,7 +82,7 @@ import { ShareService } from '../../../core/services/share.service';
           <div class="flex justify-end mb-2">
             <button
               (click)="showShareModal.set(false)"
-              class="text-gray-400 hover:text-gray-700 rounded-full p-1 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-yellow"
+              class="text-gray-400 hover:text-gray-700 rounded-full p-1 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
               i18n-aria-label="@@closeShareDialogLabel"
               aria-label="Close share dialog"
             >
@@ -152,7 +152,7 @@ import { ShareService } from '../../../core/services/share.service';
           <!-- Copy for Instagram -->
           <button
             (click)="onCopyForInstagram()"
-            class="mt-3 w-full flex items-center justify-center gap-2 border-2 border-hp-yellow hover:bg-hp-yellow/10 text-hp-black font-semibold py-3 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hp-yellow"
+            class="mt-3 w-full flex items-center justify-center gap-2 border-2 border-hp-primary hover:bg-hp-primary/10 text-hp-black font-semibold py-3 px-4 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hp-primary"
             [attr.aria-label]="copyLabel()"
           >
             @if (copied()) {
@@ -215,7 +215,7 @@ export class ResultsComponent {
   readonly scoreBarClass = computed(() => {
     const p = this.percentage();
     if (p >= 70) return 'bg-green-500';
-    if (p >= 50) return 'bg-hp-yellow';
+    if (p >= 50) return 'bg-hp-primary';
     if (p >= 30) return 'bg-orange-400';
     return 'bg-red-400';
   });

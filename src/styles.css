@@ -3,14 +3,42 @@
 @import "tailwindcss";
 
 @theme {
-  --color-hp-yellow: #f0c75e;
+  --color-hp-primary: #f0c75e;
+  --color-hp-secondary: #d4a017;
+  --color-hp-accent: #b87333;
+  --color-hp-background: #fff8e7;
   --color-hp-black: #1a1a1a;
-  --color-hp-copper: #b87333;
-  --color-hp-amber: #d4a017;
-  --color-hp-cream: #fff8e7;
+}
+
+.theme-gryffindor {
+  --color-hp-primary: #d4af37;
+  --color-hp-secondary: #740001;
+  --color-hp-accent: #ae0001;
+  --color-hp-background: #fff9f0;
+}
+
+.theme-hufflepuff {
+  --color-hp-primary: #f0c75e;
+  --color-hp-secondary: #d4a017;
+  --color-hp-accent: #b87333;
+  --color-hp-background: #fff8e7;
+}
+
+.theme-ravenclaw {
+  --color-hp-primary: #946b2d;
+  --color-hp-secondary: #222f5b;
+  --color-hp-accent: #4e5a8c;
+  --color-hp-background: #eef0f8;
+}
+
+.theme-slytherin {
+  --color-hp-primary: #2a7d4f;
+  --color-hp-secondary: #1a472a;
+  --color-hp-accent: #aaaaaa;
+  --color-hp-background: #f0f5f1;
 }
 
 body {
-  background-color: var(--color-hp-cream);
+  background-color: var(--color-hp-background);
   color: var(--color-hp-black);
 }

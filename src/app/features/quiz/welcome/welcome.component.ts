@@ -1,17 +1,31 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
+import { HOUSES, HouseTheme, ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-welcome',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="min-h-screen flex items-center justify-center bg-hp-cream px-4 py-12">
+    <div class="min-h-screen flex items-center justify-center bg-hp-background px-4 py-12">
       <div class="text-center max-w-2xl mx-auto">
 
-        <!-- Language switcher -->
-        <div class="flex justify-end mb-4 gap-2">
+        <!-- Top controls: language switcher + theme selector -->
+        <div class="flex flex-wrap justify-end mb-4 gap-2">
+          <!-- Theme selector -->
+          @for (house of houses; track house) {
+            <button
+              (click)="themeService.setTheme(house)"
+              [class]="getThemeButtonClass(house)"
+              [attr.aria-label]="'Switch to ' + house + ' theme'"
+              [attr.aria-pressed]="themeService.theme() === house"
+            >
+              {{ houseEmoji(house) }} {{ house }}
+            </button>
+          }
+
+          <!-- Language switcher -->
           <a
             href="/en/quiz"
-            class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-yellow/50 hover:bg-hp-yellow/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-yellow"
+            class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-primary/50 hover:bg-hp-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
             i18n-aria-label="@@langSwitchEnLabel"
             aria-label="Switch to English"
           >
@@ -19,7 +33,7 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
           </a>
           <a
             href="/de/quiz"
-            class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-yellow/50 hover:bg-hp-yellow/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-yellow"
+            class="text-xs font-semibold px-3 py-1 rounded-full border border-hp-primary/50 hover:bg-hp-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary"
             i18n-aria-label="@@langSwitchDeLabel"
             aria-label="Switch to German"
           >
@@ -31,12 +45,12 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 
         <h1 class="text-5xl font-bold text-hp-black mb-3 tracking-tight">
           <span i18n="@@welcomeTitle">Harry Potter</span>
-          <span class="block text-3xl text-hp-amber mt-2 font-semibold">
+          <span class="block text-3xl text-hp-secondary mt-2 font-semibold">
             <span i18n="@@welcomeSubtitle">Wizarding World Quiz</span>
           </span>
         </h1>
 
-        <div class="w-24 h-1 bg-hp-yellow mx-auto my-6 rounded-full"></div>
+        <div class="w-24 h-1 bg-hp-primary mx-auto my-6 rounded-full"></div>
 
         <p class="text-lg text-gray-700 mb-3 leading-relaxed" i18n="@@welcomeMessage">
           Welcome, young witch or wizard! Think you know enough about the wizarding world?
@@ -52,7 +66,7 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
           <p class="text-xs uppercase tracking-widest text-gray-400 mb-3 font-semibold" i18n="@@builtWith">Built With</p>
           <div class="flex flex-wrap justify-center gap-2">
             @for (tech of techStack; track tech) {
-              <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-hp-yellow/15 text-hp-black border border-hp-yellow/30">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-hp-primary/15 text-hp-black border border-hp-primary/30">
                 {{ tech }}
               </span>
             }
@@ -61,7 +75,7 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 
         <button
           (click)="start.emit()"
-          class="bg-hp-yellow hover:bg-hp-amber text-hp-black font-bold text-xl py-4 px-12 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-hp-yellow focus:ring-offset-2"
+          class="bg-hp-primary hover:bg-hp-secondary text-hp-black font-bold text-xl py-4 px-12 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-hp-primary focus:ring-offset-2"
           i18n-aria-label="@@startButtonLabel"
           aria-label="Start the Harry Potter Quiz"
         >
@@ -79,7 +93,7 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
             href="https://docs.coderabbit.ai/issues/planner"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-hp-amber underline underline-offset-2 hover:text-hp-yellow transition-colors focus:outline-none focus:ring-2 focus:ring-hp-yellow focus:ring-offset-1 rounded"
+            class="text-hp-secondary underline underline-offset-2 hover:text-hp-primary transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary focus:ring-offset-1 rounded"
           >CodeRabbit Issue Planner</a>
         </p>
       </div>
@@ -89,10 +103,32 @@ import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 export class WelcomeComponent {
   readonly start = output<void>();
 
+  protected readonly themeService = inject(ThemeService);
+  protected readonly houses = HOUSES;
+
   protected readonly techStack = [
     'Angular 21',
     'TailwindCSS 4',
     'SSR',
     'Cloudflare Workers',
   ];
+
+  private static readonly HOUSE_EMOJIS: Record<HouseTheme, string> = {
+    Gryffindor: '🦁',
+    Hufflepuff: '🦡',
+    Ravenclaw: '🦅',
+    Slytherin: '🐍',
+  };
+
+  protected houseEmoji(house: HouseTheme): string {
+    return WelcomeComponent.HOUSE_EMOJIS[house];
+  }
+
+  protected getThemeButtonClass(house: HouseTheme): string {
+    const base =
+      'text-xs font-semibold px-3 py-1 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-hp-primary';
+    return this.themeService.theme() === house
+      ? `${base} bg-hp-primary border-hp-primary text-hp-black`
+      : `${base} border-hp-primary/50 hover:bg-hp-primary/20`;
+  }
 }
