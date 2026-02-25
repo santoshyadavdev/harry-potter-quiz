@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, output } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 import { HOUSES, HouseTheme, ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-welcome',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgOptimizedImage],
   template: `
     <div class="min-h-screen flex items-center justify-center bg-hp-background px-4 py-12">
       <div class="text-center max-w-2xl mx-auto">
@@ -49,12 +47,11 @@ import { HOUSES, HouseTheme, ThemeService } from '../../../core/services/theme.s
 
         <!-- House image -->
         <img
-          [ngSrc]="houseImage()"
+          [src]="houseImage()"
           [alt]="themeService.theme() + ' house crest'"
           width="150"
           height="150"
           class="mx-auto mb-4 rounded-full border-4 border-hp-primary shadow-lg transition-opacity duration-300"
-          priority
         />
 
         <h1 class="text-5xl font-bold text-hp-black mb-3 tracking-tight">
@@ -135,10 +132,10 @@ export class WelcomeComponent {
   };
 
   private static readonly HOUSE_IMAGES: Record<HouseTheme, string> = {
-    Gryffindor: '/houses/gryffindor.png',
-    Hufflepuff: '/houses/hufflepuff.png',
-    Ravenclaw: '/houses/ravenclaw.png',
-    Slytherin: '/houses/slytherin.png',
+    Gryffindor: '/houses/gryffindor.svg',
+    Hufflepuff: '/houses/hufflepuff.svg',
+    Ravenclaw: '/houses/ravenclaw.svg',
+    Slytherin: '/houses/slytherin.svg',
   };
 
   protected readonly houseImage = computed(() => WelcomeComponent.HOUSE_IMAGES[this.themeService.theme()]);

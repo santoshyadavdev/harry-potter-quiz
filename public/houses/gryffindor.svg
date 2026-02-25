@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F0909"/>
+      <stop offset="100%" style="stop-color:#AE0001"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFC500"/>
+      <stop offset="100%" style="stop-color:#D3A625"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="96" fill="url(#ring)"/>
+  <!-- Inner circle -->
+  <circle cx="100" cy="100" r="86" fill="url(#bg)"/>
+  <!-- Shield shape -->
+  <path d="M100 35 L145 55 L145 110 Q145 145 100 170 Q55 145 55 110 L55 55 Z"
+        fill="none" stroke="#FFC500" stroke-width="2.5" opacity="0.6"/>
+  <!-- Lion symbol -->
+  <text x="100" y="115" text-anchor="middle" font-size="64" aria-hidden="true">🦁</text>
+</svg>
