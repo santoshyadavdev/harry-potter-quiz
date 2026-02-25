@@ -49,3 +49,4 @@ Thumbs.db
 !.dev.vars.example
 .env*
 !.env.example
+package-lock.json
